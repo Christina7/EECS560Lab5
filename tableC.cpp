@@ -40,10 +40,10 @@ int tableC::hash(double x){
 void tableC::insert(double x){
 	int index = hash(x);
 	if (index == m){
-		cout << "Hash tableC full \n";
+//		cout << "Hash tableC full \n";
 	}
 	else if(contains(x)){
-		cout << "Number already in list \n";
+//		cout << "Number already in list \n";
 	}
 	else{
 		a[index].data = x;
@@ -59,7 +59,7 @@ void tableC::remove(double x){
 		a[index].flag = true;
 	}
 	else{
-		cout << "Number not in tableC \n";
+	//	cout << "Number not in tableC \n";
 	}
 }
 
@@ -136,12 +136,22 @@ return true;
 }
 
 //builds tableC needs to be remade
-void tableC::build(ifstream& file){ 
-	int item;
-	file >> item;
-	m = item;
-	while (file >> item){
+void tableC::build(double itemnum, int seed, double size){ 
+	
+	srand( seed );
+	Timer time;
+	double clock = 0;
+	int  item;
+	int i = 0;
+	m = int(size);
+	while (i < itemnum){
+		item  = rand()%100;  //2147483648;
+		time.start();
 		insert(item);
+		clock += time.stop();
 	}
+
+	cout << clock << endl;
+
 }
 

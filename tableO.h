@@ -20,7 +20,7 @@ public:
 	void remove(double x);
 	void print();
 	bool find(double x);
-	void build(ifstream& file);
+	void build(double itemnum, int seed, double size);
 	list*& getArray();
 
 };

@@ -1,5 +1,6 @@
 #include <iostream>
-#include "table.h"
+#include "tableO.h"
+#include "tableC.h"
 using namespace std;
 
 int main(){
@@ -8,14 +9,14 @@ int main(){
 	tableC chashtable;
 	
 	double loadfactor;
-	double size = 600011;
+	double size = 7919;  //600011;
 	double numitem; 
 	
 	int seed;
 	
 	//5 seeds for each load factor(5) avg
 	//srand for seed
-	for ( int i = 0, i < 5, i++){
+	for ( int i = 0; i < 5; i++){
 		
 		switch (i) {
 			case 0 :
@@ -40,37 +41,41 @@ int main(){
 		}
 		
 		numitem = loadfactor * size;
-		
+	
+		cout << "Loadfactor \n" << loadfactor << endl << endl;
+	
 		for (int j = 0 ; j < 5 ; j++){
 		
 			switch (j) {
 				case 0 :
-					seed = .2;
+					seed = 7;
 					break;
 			
 				case 1 :
-					seed = .3;
+					seed = 42;
 					break;
 			
 				case 2 :
-					seed = .4;
+					seed = 89;
 					break;
 			
 				case 3 :
-					seed = .5;
+					seed = 22;
 					break;
 		
 				case 4 :	
-					seed = .6;
+					seed = 66;
 					break;	
 			}			
 		
-		
+			cout << "Seed \n"  << seed << endl;		
 		
 			ohashtable.build(numitem, seed, size); //do timing stuff
 
 			chashtable.build(numitem, seed, size);
 
+			cout << endl << endl;
+			
 		}
 	}
 

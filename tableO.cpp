@@ -33,7 +33,7 @@ void tableO::remove(double x){	//looks for hash index removes with list method
 		a[index].erase(x, a[index].getHead());
 	}
 	else{
-		cout << "Number not in tableO";
+	//	cout << "Number not in tableO";
 	}
 }
 
@@ -62,21 +62,28 @@ bool tableO::find(double x){	//finds hash index looks in that list
 
 
 //need to edit so for given numbers do timing here
-void tableO::build(ifstream& file){
+void tableO::build(double itemnum, int seed, double size){
+	
+	srand( seed );
+
+	Timer time;
 	int item;
-	file >> item;	//first item is size of the array
-	if (item > 0){
-	m = item;
-	}
-	else{
-		cout<< "Number less than 0! Please choose another: \n";
-		cin >> item;
-		m = item;
-	}
-	a = new list[m];
-	while (file >> item){
+	double clock = 0;	
+
+	int i = 0;
+	a = new list[int(size)];
+	
+	//cout << loadfactor;
+
+	while (i < itemnum){
+		item  = rand()%2147483648; 	
+		time.start();
 		insert(item);
+		clock += time.stop();
 	}
+	
+	cout << clock << endl;
+
 }
 
 list*& tableO::getArray(){

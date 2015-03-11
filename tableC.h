@@ -28,7 +28,7 @@ public:
 	int find(double x);
 	bool contains(double x);
 	bool isfull();
-	void build(ifstream& file);
+	void build(double itemnum, int seed, double size);
 };
 
 

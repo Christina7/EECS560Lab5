@@ -27,7 +27,7 @@ void list::insert(double x, node *&L){
 	}
 	else{
 		if (L->data == x){	//if current node is not null and is the number being inserted 
-			cout <<  "Number already in list \n";
+		//	cout <<  "Number already in list \n";
 		}
 		else{	//if current node is not null, last node with data, and not number being inserted, then adds new node with data
 			if (L->next == NULL){
@@ -56,7 +56,7 @@ bool list::isEmpty(){
 void list::erase(double x, node *&L){
 	node *temp = find(x, L);
 	if ((temp == NULL)&&(flag == false)) {
-		cout << "Number not in List \n";
+//		cout << "Number not in List \n";
 	}
 	else{
 		if (temp->next == NULL){	//node is last in list
@@ -64,7 +64,7 @@ void list::erase(double x, node *&L){
 				head = NULL;
 			}
 			else{ // last in list and not number being found
-			cout << "Number not in List \n";
+		//	cout << "Number not in List \n";
 			}
 				
 		}
@@ -88,7 +88,7 @@ void list::erase(double x, node *&L){
 void list::print(){
 	node *temp = head;	//new node pointing to head
 	if (temp == NULL){
-		cout << "Empty List \n";
+	cout << "Empty List \n";
 		}
 	else{
 		while (temp->next != NULL){		//while next node isn't null print data
