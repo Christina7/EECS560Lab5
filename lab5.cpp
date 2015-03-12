@@ -8,8 +8,11 @@ int main(){
 	tableO ohashtable;
 	tableC chashtable;
 	
+	//tableO ohashtable = new tableO();
+	//tableC chashtable =  new tableC();
+	
 	double loadfactor;
-	double size = 7919;  //600011;
+	double size = 65521;//599999; //600011;
 	double numitem; 
 	
 	int seed;
@@ -42,7 +45,7 @@ int main(){
 		
 		numitem = loadfactor * size;
 	
-		cout << "Loadfactor \n" << loadfactor << endl << endl;
+		cout << "Loadfactor " << loadfactor << endl << endl;
 	
 		for (int j = 0 ; j < 5 ; j++){
 		
@@ -68,7 +71,7 @@ int main(){
 					break;	
 			}			
 		
-			cout << "Seed \n"  << seed << endl;		
+			cout << "Seed "  << seed << endl;		
 		
 			ohashtable.build(numitem, seed, size); //do timing stuff
 

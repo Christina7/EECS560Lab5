@@ -7,7 +7,7 @@ using namespace std;
 
 
 tableO::tableO(){
-	m = 10;
+	m = 65537; //599999; //600011;
 	a = NULL;
 }
 
@@ -21,10 +21,14 @@ int tableO::hash(double x){
 	return index;
 }
 
-void tableO::insert(double x){	//uses list method to insert after finding correct index
+void tableO::insert(double x){
 	int index = hash(x);
 	a[index].insert(x, a[index].getHead());
+
+
 }
+
+
 
 void tableO::remove(double x){	//looks for hash index removes with list method
 	bool isThere = find(x);
@@ -33,9 +37,11 @@ void tableO::remove(double x){	//looks for hash index removes with list method
 		a[index].erase(x, a[index].getHead());
 	}
 	else{
-	//	cout << "Number not in tableO";
+		cout << "Number not in table";
 	}
 }
+
+
 
 void tableO::print(){	//uses list method's print
 	for (int i = 0; i < m; i++){
@@ -69,20 +75,21 @@ void tableO::build(double itemnum, int seed, double size){
 	Timer time;
 	int item;
 	double clock = 0;	
-
+	m = int(size);
 	int i = 0;
-	a = new list[int(size)];
+	a = new list[m];
 	
 	//cout << loadfactor;
 
 	while (i < itemnum){
-		item  = rand()%2147483648; 	
+		item  = rand()%2147483647; 	
 		time.start();
 		insert(item);
 		clock += time.stop();
+		i++;
 	}
 	
-	cout << clock << endl;
+	cout << "Open \n" << clock << endl;
 
 }
 

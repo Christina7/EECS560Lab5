@@ -10,7 +10,7 @@ using namespace std;
 class tableO{
 private:
 	list* a;
-	int m;
+	unsigned long m;
 
 public:
 	tableO();

@@ -7,7 +7,7 @@
 #include <math.h>
 using namespace std;
 
-const int MAX_SIZE = 101;
+const int max_size = 65521;//65537; // 600011;
 
 struct bucket{
 	double data;
@@ -16,7 +16,7 @@ struct bucket{
 
 class tableC{
 private:
-	bucket a[MAX_SIZE];
+	bucket a[max_size];
 	int m;
 
 public:

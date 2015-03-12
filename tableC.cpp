@@ -8,7 +8,7 @@ using namespace std;
 
 tableC::tableC(){ //initialize all entries to -1 and false
 	m=0;
-	for (int i = 0; i < MAX_SIZE; i++){
+	for (int i = 0; i < max_size; i++){
 		a[i].data = -1;
 		a[i].flag = false;
 	}
@@ -145,13 +145,14 @@ void tableC::build(double itemnum, int seed, double size){
 	int i = 0;
 	m = int(size);
 	while (i < itemnum){
-		item  = rand()%100;  //2147483648;
+		item  = rand()%2147483647;
 		time.start();
 		insert(item);
 		clock += time.stop();
+		i++;
 	}
 
-	cout << clock << endl;
+	cout << "Closed \n" << clock << endl;
 
 }
 
